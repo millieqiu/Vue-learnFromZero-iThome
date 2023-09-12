@@ -1,18 +1,17 @@
 <template>
-  <!-- 相關 html 標籤語法放置的地方 -->
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  {{ message }}
 </template>
 
 <script>
 // 程式邏輯放置的地方
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+export default { // 所有程式邏輯都要寫在 export default 裡
+  name: 'App', // 宣告這個 Vue
+  data() {
+    return {
+      message: 'Hello World',
+    }
+  },
 }
 </script>
 
