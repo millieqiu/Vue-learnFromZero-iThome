@@ -1,5 +1,10 @@
 <template>
   {{ message }}
+  <br />
+  {{ count }}
+  <br />
+  My name is {{ name }}
+  <button @click="myFunction(10), changeName()">Click me!</button>
 </template>
 
 <script>
@@ -10,6 +15,16 @@ export default { // 所有程式邏輯都要寫在 export default 裡
   data() {
     return {
       message: 'Hello World',
+      count: 0,
+      name: 'Alan',
+    }
+  },
+  methods: {
+    myFunction(temp) {
+      this.count += temp;
+    },
+    changeName() {
+      this.name = 'Jacky';
     }
   },
 }
