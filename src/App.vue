@@ -5,6 +5,39 @@
   <br />
   My name is {{ name }}
   <button @click="myFunction(10), changeName()">Click me!</button>
+
+  <hr />
+
+  {{ userName }}
+  <br />
+  <input type="text" v-model.lazy="formData.userName">
+  <!-- v-model.lazy 可以在輸入完畢才會將內容儲存起來，換句話說就是將游標跳出，input 輸入框才會將值寫入到變數內 -->
+
+  <hr>
+
+  <h3>Day9 - 表單常用欄位</h3>
+  {{ selectValue }} <br />
+  <select v-model="formData.selectValue">
+    <option value="">select</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+
+  <br />
+
+  <input type="checkbox" v-model="formData.isCheck" /> {{ isCheck }}
+
+    <br />
+
+    {{ checkbox }} <br />
+  <input type="checkbox" value="0" v-model="formData.checkbox" /> 0
+  <input type="checkbox" value="1" v-model="formData.checkbox" /> 1
+  <input type="checkbox" value="2" v-model="formData.checkbox" /> 2
+  <input type="checkbox" value="3" v-model="formData.checkbox" /> 3
+
+  <button @click="submit">送出</button>
+
 </template>
 
 <script>
@@ -16,7 +49,13 @@ export default { // 所有程式邏輯都要寫在 export default 裡
     return {
       message: 'Hello World',
       count: 0,
-      name: 'Alan',
+      formData: {
+        name: 'Alan',
+        userName: '',
+        selectValue: '',
+        isCheck: false,
+        checkbox: [],
+      }
     }
   },
   methods: {
@@ -25,6 +64,9 @@ export default { // 所有程式邏輯都要寫在 export default 裡
     },
     changeName() {
       this.name = 'Jacky';
+    },
+    submit() {
+      console.log(this.formData);
     }
   },
 }
