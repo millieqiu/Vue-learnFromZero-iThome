@@ -1,4 +1,8 @@
 <template>
+
+  <!-- 引用元件成功 -->
+  <myHeader /> 
+
   {{ message }}
   <br />
   {{ count }}
@@ -41,10 +45,15 @@
 </template>
 
 <script>
+import myHeader from './components/Header.vue'; // 引用元件，將程式碼模組化
+
 // 程式邏輯放置的地方
 
 export default { // 所有程式邏輯都要寫在 export default 裡
   name: 'App', // 宣告這個 Vue
+  components: {
+    myHeader,
+  },
   data() {
     return {
       message: 'Hello World',
