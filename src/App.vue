@@ -1,7 +1,9 @@
 <template>
 
   <!-- 引用元件成功 -->
-  <myHeader /> 
+  <myHeader :date="date" greetings="Nice to meet you :D"/> 
+
+  <br />
 
   {{ message }}
   <br />
@@ -56,6 +58,7 @@ export default { // 所有程式邏輯都要寫在 export default 裡
   },
   data() {
     return {
+      date: '2023/9/21',
       message: 'Hello World',
       count: 0,
       formData: {
