@@ -44,10 +44,17 @@
 
   <button @click="submit">送出</button>
 
+  <br />
+
+  <myView @viewText="getViewText" />
+
+  {{ text }}
+
 </template>
 
 <script>
 import myHeader from './components/Header.vue'; // 引用元件，將程式碼模組化
+import myView from './components/View.vue';
 
 // 程式邏輯放置的地方
 
@@ -55,6 +62,7 @@ export default { // 所有程式邏輯都要寫在 export default 裡
   name: 'App', // 宣告這個 Vue
   components: {
     myHeader,
+    myView,
   },
   data() {
     return {
@@ -67,7 +75,8 @@ export default { // 所有程式邏輯都要寫在 export default 裡
         selectValue: '',
         isCheck: false,
         checkbox: [],
-      }
+      },
+      text: '',
     }
   },
   methods: {
@@ -79,7 +88,10 @@ export default { // 所有程式邏輯都要寫在 export default 裡
     },
     submit() {
       console.log(this.formData);
-    }
+    },
+    getViewText(text) {
+      this.text = text;
+    },
   },
 }
 </script>
