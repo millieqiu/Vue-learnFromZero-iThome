@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'myView',
-  emits: ['viewText'],
+  emits: ['viewText'], // 使用 emits 將元件的資料傳回父層
   data() {
     return {
       text: '',

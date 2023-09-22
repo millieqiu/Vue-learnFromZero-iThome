@@ -50,11 +50,17 @@
 
   {{ text }}
 
+  <br>
+
+  {{ emitText }}
+  <myInput v-model="emitText" />
+
 </template>
 
 <script>
 import myHeader from './components/Header.vue'; // 引用元件，將程式碼模組化
 import myView from './components/View.vue';
+import myInput from './components/Input.vue';
 
 // 程式邏輯放置的地方
 
@@ -63,6 +69,7 @@ export default { // 所有程式邏輯都要寫在 export default 裡
   components: {
     myHeader,
     myView,
+    myInput,
   },
   data() {
     return {
@@ -77,6 +84,7 @@ export default { // 所有程式邏輯都要寫在 export default 裡
         checkbox: [],
       },
       text: '',
+      emitText: '',
     }
   },
   methods: {
