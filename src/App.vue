@@ -1,37 +1,42 @@
 <template>
-  <button @click="show('tab1')">Component1</button>
-  <button @click="show('tab2')">Component2</button>
-  <button @click="show('tab3')">Component3</button>
-
-  <!-- 使用 v-if 來決定當切換到 tab 時應出現各自對應的內容（元件） -->
-  <ComponentOne v-if="tab === 'tab1'"/>
-  <ComponentTwo v-if="tab === 'tab2'"/>
-  <keep-alive>
-    <ComponentThree v-if="tab === 'tab3'" />
-  </keep-alive>
+  {{ user.id }} {{ user.name }}
+  <hr>
+  <button @click="incrementCount()">Click me</button>
+  {{ count }}
+  <hr>
+  <!-- 使用 toRefs -->
+  {{ email }}
+  <input type="text" v-model="email" />
 </template>
 
 <script>
-import ComponentOne from './components/Component1.vue';
-import ComponentTwo from './components/Component2.vue';
-import ComponentThree from './components/Component3.vue';
+import { ref, reactive, toRefs } from 'vue';
 
 export default {
   name: 'App',
-  components: {
-    ComponentOne,
-    ComponentTwo,
-    ComponentThree,
-  },
-  data() {
+  setup() {
+    const user = reactive({
+      id: 0,
+      name: '',
+    });
+    const count = ref(0);
+    const userData = reactive({
+      email: '',
+    });
+
+    user.id = 1;
+    user.name = 'Allan';
+
+    function incrementCount() {
+      count.value++;
+    }
+
     return {
-      tab: 'tab1',
+      user,
+      count,
+      ...toRefs(userData),
+      incrementCount,
     };
-  },
-  methods: {
-    show(index) {
-      this.tab = index;
-    },
   },
 };
 </script>
