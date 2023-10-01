@@ -55,12 +55,22 @@
   {{ emitText }}
   <myInput v-model="emitText" />
 
+  <br>
+
+  <Card>
+    <h2>Content</h2>
+  </Card>
+  <Card>
+    <a href="">Link</a>
+  </Card>
+
 </template>
 
 <script>
 import myHeader from './components/Header.vue'; // 引用元件，將程式碼模組化
 import myView from './components/View.vue';
 import myInput from './components/Input.vue';
+import myCard from './components/Card.vue';
 
 // 程式邏輯放置的地方
 
@@ -70,6 +80,7 @@ export default { // 所有程式邏輯都要寫在 export default 裡
     myHeader,
     myView,
     myInput,
+    myCard,
   },
   data() {
     return {
