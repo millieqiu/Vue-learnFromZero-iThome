@@ -55,14 +55,23 @@
   {{ emitText }}
   <myInput v-model="emitText" />
 
-  <br>
+  <hr>
 
-  <Card>
+  <h2>使用 slot 可以自定義 HTML 標籤</h2>
+  <myCard>
     <h2>Content</h2>
-  </Card>
-  <Card>
+  </myCard>
+  <myCard>
     <a href="">Link</a>
-  </Card>
+  </myCard>
+  <hr />
+
+  <h2>指定 slot name 傳入</h2>
+  <myCard>
+    <template v-slot:header>
+      <h1>My Header</h1>
+    </template>
+  </myCard>
 
 </template>
 
